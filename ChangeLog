@@ -1,3 +1,6 @@
+0.0.3
+ * be more aggressive in displaying, on windows
+
 0.0.2
  * add some measly form of parameter parsing--if you have a binary file that does
    puts 'something'

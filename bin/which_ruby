@@ -17,7 +17,7 @@ else
           puts candidate
           success = true
         elsif File::exist? candidate
-          puts candidate + ' is not executable'
+          puts candidate + ' (is not executable)'
         end
       end
     end
@@ -29,11 +29,15 @@ else
 
     return success
   end
-  answer = which(ARGV[0])
-  # windows compat.
-  if !answer and RUBY_PLATFORM =~ /mswin|mingw/
+
+  which(ARGV[0])
+
+  if RUBY_PLATFORM =~ /mswin|mingw/
+    # windows compat.
     which(ARGV[0] + '.exe')
     which(ARGV[0] + '.bat')
     which(ARGV[0] + '.cmd')
+    which(ARGV[0] + '.dll')
   end
+
 end

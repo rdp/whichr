@@ -1,3 +1,6 @@
+0.0.4
+ * accomodate for directories [those aren't really executable!]
+
 0.0.3
  * be more aggressive in displaying, on windows
 

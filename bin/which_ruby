@@ -13,9 +13,13 @@ else
     path.split(File::PATH_SEPARATOR).each do |dir|
       candidates = Dir.glob (dir.gsub("\\", "/") + '/' + bin.strip)
       for candidate in candidates
-        if File::executable? candidate
-          puts candidate
+        if File::executable?(candidate)
+          print candidate
+          if(File.directory?(candidate))
+           print ' (is a directory)'
+          end
           success = true
+          puts
         elsif File::exist? candidate
           puts candidate + ' (is not executable)'
         end

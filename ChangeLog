@@ -1,0 +1,5 @@
+0.0.2
+ * add some measly form of parameter parsing--if you have a binary file that does
+   puts 'something'
+   return
+   The puts never shows up? What the heck?

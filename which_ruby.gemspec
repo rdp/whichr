@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{which_ruby}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
  
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roger Pack"]
@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.executable = 'which_ruby'
 
   s.add_dependency(%q<rdoc>, [">= 2.3.0"]) # so that I don't need a lib directory :P
+  s.add_dependency(%q<rogerdpack-sane>) # Object.in?
      
 end
 

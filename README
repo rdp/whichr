@@ -1,11 +1,14 @@
-which_ruby: the linux "which" command re-written in ruby [and windows-friendly/aware [recognizes .bat files, etc.]]
+which_ruby: the linux "which" command re-written in ruby [and windows-friendly+aware [recognizes .bat files, etc.]]
 
-Itch it scratches: there seems to be no "which" command for windows that actually works--they all skip batch files so even if you run "which xxx" you never know what you're really running when you type xxx in the command line--is it xxx.exe [the thing reported from 'which'] or xxx.bat somewhere previous to this in the path?  This executable clears up that ambiguity.
+A which command for windows that actually works!
+
+Itch it scratches: there seems to be a lack of a "which" command for windows that actually works--they all skip batch files or report file output without extensions, so even if you run "which xxx" you never know what you're really running when you type xxx in the command line--is it xxx.exe [the thing reported from 'which'] or xxx.bat somewhere previous to this in the path?  This executable makes this crystal clear and is a must have for every windows developer.
+
 
 Based originally on some code stolen from ruby gnuplot, extracted.
 
 To install:
- gem install rogerdpack-which_ruby
+ gem install rogerdpack-whichrr
  then
- C:> which_ruby executable_name_here
+ C:> whichr executable_name_here [extension optional]
 

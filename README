@@ -4,10 +4,17 @@ A which command for windows that actually works!
 
 Itch it scratches: there seems to be a lack of a "which" command for windows that actually works--they all skip batch files or report file output without extensions, so even if you run "which xxx" you never know what you're really running when you type xxx in the command line--is it xxx.exe [the thing reported from 'which'] or xxx.bat somewhere previous to this in the path?  This executable makes this crystal clear and is a must have for every windows developer.
 
+To install:
+ C:> gem install rogerdpack-whichr
+ 
+ C:> whichr executable_name_here [extension could be included, but is optional]
+
+example:
+  C:\>whichr ruby
+  higher in the list will be executed first
+  C:/Ruby/bin/ruby.exe
+  c:/cygwin/bin/ruby.exe
 
 Based originally on some code stolen from ruby gnuplot, extracted.
 
-To install:
- C:> gem install rogerdpack-which_ruby
- 
- C:> whichr executable_name_here [extension could be included, but is optional]
+Feedback welcome rogerdpack on github

@@ -8,7 +8,6 @@ Itch it scratches: there seems to be a lack of a "which" command for windows tha
 Based originally on some code stolen from ruby gnuplot, extracted.
 
 To install:
- gem install rogerdpack-whichrr
- then
- C:> whichr executable_name_here [extension optional]
-
+ C:> gem install rogerdpack-which_ruby
+ 
+ C:> whichr executable_name_here [extension could be included, but is optional]

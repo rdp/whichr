@@ -6,22 +6,24 @@ if(ARGV[0].in?( ['-h', '--help'])) || !ARGV[0]
   puts 'syntax: binary_name'
 else
   puts 'higher in the list will be executed first'
-  def which ( bin )
+  def which ( bins )
     success = false
     path = '.' + File::PATH_SEPARATOR + ENV['PATH']
 
     path.split(File::PATH_SEPARATOR).each do |dir|
-      candidates = Dir.glob (dir.gsub("\\", "/") + '/' + bin.strip)
-      for candidate in candidates
-        if File::executable?(candidate)
-          print candidate
-          if(File.directory?(candidate))
-           print ' (is a directory)'
+      for bin in bins
+        candidates = Dir.glob(dir.gsub("\\", "/") + '/' + bin.strip)
+        for candidate in candidates
+          if File::executable?(candidate)
+            print candidate
+            if(File.directory?(candidate))
+              print ' (is a directory)'
+            end
+            success = true
+            puts
+          elsif File::exist? candidate
+            puts candidate + ' (is not executable)'
           end
-          success = true
-          puts
-        elsif File::exist? candidate
-          puts candidate + ' (is not executable)'
         end
       end
     end
@@ -30,18 +32,18 @@ else
     # available.
     #
     # IO.popen("which #{bin}") { |io| return io.readline.chomp }
-
     return success
   end
 
-  which(ARGV[0])
+  list = [ARGV[0]]
 
   if RUBY_PLATFORM =~ /mswin|mingw/
     # windows compat.
-    which(ARGV[0] + '.exe')
-    which(ARGV[0] + '.bat')
-    which(ARGV[0] + '.cmd')
-    which(ARGV[0] + '.dll')
+    for extension in ['.exe', '.bat', '.cmd', '.dll'] do
+      list << ARGV[0] + extension
+    end
   end
+
+  which(list)
 
 end

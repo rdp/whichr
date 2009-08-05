@@ -1,5 +1,6 @@
 0.0.5
  * rename which_ruby -> whichr
+ * show more accurate ordering
 
 0.0.4
  * accomodate for directories [those aren't really executable!]

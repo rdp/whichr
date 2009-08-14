@@ -25,7 +25,6 @@ Installation:
 
    C:\>gem install rogerdpack-whichr
   
-   C:\>whichr executable_name_here [extension can be included, but is optional]
 Enjoy.
 
 Feedback welcome rogerdpack on github/gmail

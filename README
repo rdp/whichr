@@ -33,3 +33,9 @@ Also Related:
 http://github.com/Pistos/ruby-which discovers the location of installed ruby libraries, i.e. which gem folder they're in
 C:\>rwhich ruby-which
 c:/ruby/lib/ruby/gems/1.9.1/gems/Pistos-ruby-which-0.5.3/lib/ruby-which.rb
+
+Except you don't actually need it since you have
+$ gem which fileutils
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/fileutils.rb
+
+Thanks Eric!

@@ -23,8 +23,13 @@ Usage:
 
 Installation:
 
-   C:\>gem install rogerdpack-whichr
+   C:\>gem install rogerdpack-whichr --source http://gems.github.com 
   
 Enjoy.
 
 Feedback welcome rogerdpack on github/gmail
+
+Also Related:
+http://github.com/Pistos/ruby-which discovers the location of installed ruby libraries, i.e. which gem folder they're in
+C:\>rwhich ruby-which
+c:/ruby/lib/ruby/gems/1.9.1/gems/Pistos-ruby-which-0.5.3/lib/ruby-which.rb

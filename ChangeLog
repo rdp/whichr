@@ -1,3 +1,5 @@
+* -- rest in .gemspec itself
+
 0.0.7
  * Respect ENV['PATHEXT'] on doze
    Also don't add '.' on Linux

@@ -1,5 +1,6 @@
 # stolen from the gnuplot gem
 # and then modified
+require 'rubygems'
 require 'sane'
 
 if(ARGV[0].in?( ['-h', '--help'])) || !ARGV[0]
@@ -8,7 +9,9 @@ else
   puts 'higher in the list will be executed first'
   def which ( bins )
     success = false
-    path = '.' + File::PATH_SEPARATOR + ENV['PATH']
+    path = ENV['PATH']
+    # on windows add . [cwd]
+    path += ('.' + File::PATH_SEPARATOR) if RUBY_PLATFORM =~ /mswin|mingw/
 
     path.split(File::PATH_SEPARATOR).each do |dir|
       for bin in bins
@@ -39,7 +42,7 @@ else
 
   if RUBY_PLATFORM =~ /mswin|mingw/
     # windows compat.
-    for extension in ['.exe', '.bat', '.cmd', '.dll'] do
+    for extension in  ENV['PATHEXT'].split(';') do
       list << ARGV[0] + extension
     end
   end

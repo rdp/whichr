@@ -1,3 +1,7 @@
+0.0.7
+ * Respect ENV['PATHEXT'] on doze
+   Also don't add '.' on Linux
+
 0.0.6
  * Better readme
 

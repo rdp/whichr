@@ -1,50 +1,26 @@
-# stolen from the gnuplot gem
-# and then modified
+# whichr
+# reveal executable name in path
 require 'rubygems'
 require 'sane'
+require 'whichr.rb'
 
-if(ARGV[0].in?( ['-h', '--help'])) || !ARGV[0]
-  puts 'syntax: nameary_name'
-else
-  puts 'higher in the list will be executed first'
-  def which( names )
-    success = false
-    path = ENV['PATH']
-    # on windows add . [cwd]
-    path += ('.' + File::PATH_SEPARATOR) if RUBY_PLATFORM =~ /mswin|mingw/
+if ARGV[0].in? ['--help', '-h']
+  puts "syntax: executable_name or glob"
+  exit 0
+end
 
-    path.split(File::PATH_SEPARATOR).each do |dir|
-      for name in names
-        candidates = Dir.glob(dir.gsub("\\", "/") + '/' + name.strip)
-        for candidate in candidates
-	  # might just match the name and not be executable
-	  candidate = Dir.glob(candidate + '*')[0] if RUBY_PLATFORM =~ /mswin|mingw/ # get the right capitalization in doze
-          if File::executable?(candidate)
-            print candidate
-            if(File.directory?(candidate))
-              print ' (is a directory)'
-            end
-            success = true
-            puts
-          elsif File::exist? candidate
-            puts candidate + ' (is not executable)'
-          end
-        end
-      end
+all = RubyWhich.new.which([ARGV[0]])
+
+for candidate in all
+  # might just match the name and not be executable
+  candidate = Dir.glob(candidate + '*')[0] if RUBY_PLATFORM =~ /mswin|mingw/ # get the right capitalization in doze
+  if File::executable?(candidate)
+    print candidate
+    if(File.directory?(candidate))
+      print ' (is a directory)'
     end
-
-    return success
+    puts
+  elsif File::exist? candidate
+    puts candidate + ' (is not executable)'
   end
-
-  list = [ARGV[0]]
-
-  if RUBY_PLATFORM =~ /mswin|mingw/
-    # windows compat.
-    for extension in  ENV['PATHEXT'].split(';') do
-      list << ARGV[0] + extension
-    end
-  end
-
-  which(list)
-
 end

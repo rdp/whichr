@@ -8,6 +8,7 @@ class RubyWhich
   # like ['abc'] (in windows, also searches for abc.bat)
   # or ['ab*'] (a glob, in windows, also reveals ab*.bat)
   def which( names )
+    names = [names] unless names.is_a? Array
 
     if RUBY_PLATFORM =~ /mswin|mingw/
       for name in names.dup # avoid recursion

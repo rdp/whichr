@@ -9,7 +9,7 @@ if ARGV[0].in? ['--help', '-h']
   exit 0
 end
 
-all = RubyWhich.new.which([ARGV[0]])
+all = RubyWhich.new.which(ARGV[0])
 
 for candidate in all
   # might just match the name and not be executable

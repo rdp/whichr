@@ -9,7 +9,7 @@ if ARGV[0].in? ['--help', '-h']
   exit 0
 end
 
-puts "Higher in the list will be executed first"
+puts "higher in the list will be executed first"
 
 all = RubyWhich.new.which(ARGV[0])
 for candidate in all

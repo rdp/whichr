@@ -9,8 +9,9 @@ if ARGV[0].in? ['--help', '-h']
   exit 0
 end
 
-all = RubyWhich.new.which(ARGV[0])
+puts "Higher in the list will be executed first"
 
+all = RubyWhich.new.which(ARGV[0])
 for candidate in all
   # might just match the name and not be executable
   candidate = Dir.glob(candidate + '*')[0] if RUBY_PLATFORM =~ /mswin|mingw/ # get the right capitalization in doze

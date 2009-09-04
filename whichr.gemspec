@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{whichr}
-  s.version = "0.1.5"
+  s.version = "0.1.6"
  
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roger Pack"]
@@ -21,3 +21,4 @@ end
 # 0.1.3 use the right capitalization in doze
 # 0.1.4 split into a re-usable lib
 # 0.1.5 allow pass in single string
+# 0.1.6 output message on startup

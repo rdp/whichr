@@ -9,9 +9,10 @@ if ARGV[0].in? ['--help', '-h']
   exit 0
 end
 
-puts "higher in the list will be executed first"
+puts "higher in the list will be executed first:"
 
 all = RubyWhich.new.which(ARGV[0])
+
 for candidate in all
   # might just match the name and not be executable
   candidate = Dir.glob(candidate + '*')[0] if RUBY_PLATFORM =~ /mswin|mingw/ # get the right capitalization in doze
@@ -21,7 +22,10 @@ for candidate in all
       print ' (is a directory)'
     end
     puts
-  elsif File::exist? candidate
-    puts candidate + ' (is not executable)'
+    # TODO accomodate for ruby's poor executable test.x
   end
+end
+
+if all == []
+  puts "#{ARGV[0]} not found"
 end

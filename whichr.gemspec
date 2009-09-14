@@ -23,3 +23,4 @@ end
 # 0.1.5 allow pass in single string
 # 0.1.6 output message on startup
 #     7 don't capitalize it
+# attempt rebuild

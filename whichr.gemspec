@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.add_dependency(%q<rdoc>, [">= 2.3.0"]) # so that I don't need a lib directory :P
   s.add_dependency(%q<rogerdpack-sane>) # Object.in?
      
-end
+
 
 # 0.1.0 initial release happy birthday
 # 0.1.1 bump README
@@ -24,3 +24,4 @@ end
 # 0.1.6 output message on startup
 #     7 don't capitalize it
 # attempt rebuild
+end

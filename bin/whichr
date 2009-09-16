@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # whichr
 # reveal executable name in path
 require 'rubygems'

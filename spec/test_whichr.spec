@@ -29,6 +29,16 @@ describe RubyWhich do
     assert outs.length == 1
   end
 
+  it "should show non execs if you want it to" do
+    setup
+    FileUtils.rm 'test/abc.bat' # clean it up
+    FileUtils.touch 'test/abc'
+    File.chmod 0777, 'test/abc'
+    outs = @a.which('abc', true)
+    assert outs.length == 1
+
+  end
+
   it "should only give uniq k?" do
     setup
     ENV['PATH'] = 'test' + File::PATH_SEPARATOR + 'test'

@@ -7,7 +7,7 @@ class RubyWhich
   # search the path for the given names
   # like ['abc'] (in windows, also searches for abc.bat)
   # or ['ab*'] (a glob, in windows, also reveals ab*.bat)
-  def which( names )
+  def which( names, return_non_executables_too = false )
     names = [names] unless names.is_a? Array
 
     if RUBY_PLATFORM =~ /mswin|mingw/
@@ -27,7 +27,9 @@ class RubyWhich
       for name in names
         if RUBY_PLATFORM =~ /mswin|mingw/
     	  names2 = Dir.glob(dir.gsub("\\", "/") + '/' + name.strip)
-    	  names2 = names2.select{|name| File.executable?(name)} # only real execs
+    	  unless return_non_executables_too
+    	    names2 = names2.select{|name| File.executable?(name)} # only real execs
+    	  end
     	  names2.collect!{|name| File.expand_path(name)} # get the right capitalization
         else
     	  names2 = Dir.glob(dir + '/' + name.strip)

@@ -5,22 +5,9 @@ require 'sane'
 require 'whichr.rb'
 
 if ARGV[0].in? ['--help', '-h']
-  puts "syntax: executable_name or glob"
+  puts "syntax: executable_name or glob, ex: whichr or which* or whichr.bat"
   exit 0
 end
 
-all = RubyWhich.new.which(ARGV[0])
+RubyWhich.new.process(ARGV)
 
-for candidate in all
-  # might just match the name and not be executable
-  candidate = Dir.glob(candidate + '*')[0] if RUBY_PLATFORM =~ /mswin|mingw/ # get the right capitalization in doze
-  if File::executable?(candidate)
-    print candidate
-    if(File.directory?(candidate))
-      print ' (is a directory)'
-    end
-    puts
-  elsif File::exist? candidate
-    puts candidate + ' (is not executable)'
-  end
-end

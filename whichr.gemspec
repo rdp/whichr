@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.executable = 'whichr'
   s.require_paths = ["lib"]
   s.add_dependency(%q<rdoc>, [">= 2.3.0"]) # so that I don't need a lib directory :P
-  s.add_dependency(%q<rogerdpack-sane>) # Object.in?
+#  s.add_dependency(%q<rogerdpack-sane>) # Object.in?
      
 end
 

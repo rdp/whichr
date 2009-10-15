@@ -10,7 +10,12 @@ require 'whichr.rb'
 
 if ARGV[0].in? ['--help', '-h']
   puts "syntax: executable_name or glob, ex: whichr or which* or whichr.bat
-    [-a] for all (include non executables)"
+    [-a] for all (include non executables)
+    ex:
+    $ whichr ls
+    $ whichr ls*
+    $ whichr ls.exe
+    $ whichr ls -a"
   exit 0
 end
 

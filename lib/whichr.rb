@@ -42,9 +42,13 @@ class RubyWhich
     all_found.uniq
   end
 
-  def process(names)
-    candidates = which names
-    print output(candidates)
+  def process(names, all = false)
+    candidates = which(names, all)
+    if candidates == []
+    	puts 'none found (' + names.inspect + ')'
+    else
+    	print output(candidates)
+    end
   end
 
   def output all

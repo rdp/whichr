@@ -1,13 +1,21 @@
 # whichr
 # reveal executable name in path
-require 'rubygems'
+if $0 == __FILE__
+ # test run
+ $: << '../lib'
+ require 'rubygems'
+end
 require 'sane'
 require 'whichr.rb'
 
 if ARGV[0].in? ['--help', '-h']
-  puts "syntax: executable_name or glob, ex: whichr or which* or whichr.bat"
+  puts "syntax: executable_name or glob, ex: whichr or which* or whichr.bat
+    [-a] for all (include non executables)"
   exit 0
 end
 
-RubyWhich.new.process(ARGV)
-
+if ARGV.include? '-a'
+  RubyWhich.new.process(ARGV[0..-2], true)
+else
+  RubyWhich.new.process(ARGV, false)
+end

@@ -39,7 +39,23 @@ class RubyWhich
       end
     end
 
-    all_found.uniq
+    # parse out same spelled fellas in doze
+    if RUBY_PLATFORM =~ /mswin|mingw/
+      unique = []
+      previous = {}
+      all_found.each {|entry|
+        if previous[entry.downcase] 
+          # do nothing
+        else
+           previous[entry.downcase] = 'ja'
+           unique << entry
+        end
+      }
+      all_found = unique
+    else
+      all_found.uniq!
+    end
+    all_found
   end
 
   def process(names, all = false)

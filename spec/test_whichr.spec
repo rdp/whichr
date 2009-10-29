@@ -17,6 +17,15 @@ describe RubyWhich do
 
   end
 
+  it "should not show duplicates with different cased drive letters" do
+    setup
+    path = File.expand_path 'test'
+    ENV['PATH'] = path.upcase + ';' + path.downcase
+    outs = @a.which 'abc'
+    assert outs.length == 1
+
+  end
+
   it "should not show non execs" do
     setup
     FileUtils.rm 'test/abc.bat' # clean it up

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{whichr}
-  s.version = "0.1.8"
+  s.version = "0.1.9"
  
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roger Pack"]
@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
 # 0.1.6 output message on startup
 #     7 don't capitalize it
 # attempt rebuild
+#     9 don't repeat on doze with repeated path
 end

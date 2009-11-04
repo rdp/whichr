@@ -10,7 +10,7 @@ class RubyWhich
   def which( names, return_non_executables_too = false )
     names = [names] unless names.is_a? Array
 
-    if RUBY_PLATFORM =~ /mswin|mingw/
+    if OS.windows?
       for name in names.dup # avoid recursion
         # windows compat.
         for extension in  ENV['PATHEXT'].split(';') do
@@ -22,10 +22,10 @@ class RubyWhich
     all_found = []
     path = ENV['PATH']
     # on windows add . [the cwd]
-    path += (File::PATH_SEPARATOR + '.') if RUBY_PLATFORM =~ /mswin|mingw/
+    path += (File::PATH_SEPARATOR + '.') if OS.windows?
     path.split(File::PATH_SEPARATOR).each do |dir|
       for name in names
-        if RUBY_PLATFORM =~ /mswin|mingw/
+        if OS.windows?
     	  names2 = Dir.glob(dir.gsub("\\", "/") + '/' + name.strip)
     	  unless return_non_executables_too
     	    names2 = names2.select{|name| File.executable?(name)} # only real execs
@@ -40,7 +40,7 @@ class RubyWhich
     end
 
     # parse out same spelled fellas in doze
-    if RUBY_PLATFORM =~ /mswin|mingw/
+    if OS.windows?
       unique = []
       previous = {}
       all_found.each {|entry|
@@ -71,7 +71,7 @@ class RubyWhich
     output = "higher in the list is executed first\n"
     for candidate in all
       # might just match the name and not be executable
-      candidate = Dir.glob(candidate + '*')[0] if RUBY_PLATFORM =~ /mswin|mingw/ # get the right capitalization in doze
+      candidate = Dir.glob(candidate + '*')[0] if OS.windows?
       output << candidate
       if !File.executable? candidate
         output += ' (is not executable)'

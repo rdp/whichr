@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{whichr}
-  s.version = "0.2.0"
+  s.version = "0.3.1"
  
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roger Pack"]
@@ -13,6 +13,9 @@ Gem::Specification.new do |s|
   s.add_dependency(%q<rdoc>, [">= 2.3.0"]) # so that I don't need a lib directory :P
   s.add_dependency(%q<sane>) # Object.in?
 
+
+# 0.3.1 cleanup inline
+# 0.3.0 inline 
 # 0.1.0 initial release happy birthday
 # 0.1.1 bump README
 # 0.1.2 respect ENV['PATHEXT'] and '.' on windows

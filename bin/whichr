@@ -20,7 +20,7 @@ if ARGV[0].in? ['--help', '-h']
 end
 
 if ARGV.include? '-a'
-  RubyWhich.new.process(ARGV[0..-2], true)
+  RubyWhich.new.which(ARGV[0..-2], true, true)
 else
-  RubyWhich.new.process(ARGV, false)
+  RubyWhich.new.which(ARGV, false, true)
 end

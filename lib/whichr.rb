@@ -79,8 +79,6 @@ class RubyWhich
     if realtime_output
       if all_found == []
     	  puts 'none found (' + names.inspect + ')'
-      else
-        puts
       end
     end
 

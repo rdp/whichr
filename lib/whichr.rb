@@ -61,11 +61,11 @@ class RubyWhich
   	       print file
   	       
   	       if !File.executable? file
-             output += ' (is not executable)'
+             print += ' (is not executable)'
            end
            
            if File.directory?(file)
-             output << ' (is a directory)'
+             print << ' (is a directory)'
            end
            puts
          }

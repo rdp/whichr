@@ -65,7 +65,7 @@ class RubyWhich
            end
            
            if File.directory?(file)
-             print << ' (is a directory)'
+             print ' (is a directory)'
            end
            puts
          }

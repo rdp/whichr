@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{whichr}
-  s.version = "0.3.2"
+  s.version = "0.3.6"
  
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Roger Pack"]
@@ -10,9 +10,10 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/rogerdpack/which_ruby}
   s.executable = 'whichr'
   s.require_paths = ["lib"]
-  s.add_dependency(%q<rdoc>, [">= 2.3.0"]) # so that I don't need a lib directory :P
-  s.add_dependency(%q<sane>) # Object.in?
+#  s.add_dependency(%q<rdoc>, [">= 2.3.0"]) # so that I don't need a lib directory :P hmm...
+  s.add_dependency(%q<sane>) # Object.in? etc.
 
+# 0.3.6 bump to the gem 0.3.5 version, remove rdoc dependency
 
 # 0.3.1 cleanup inline
 # 0.3.0 inline 

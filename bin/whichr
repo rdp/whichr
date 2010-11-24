@@ -1,5 +1,7 @@
-# whichr
+#!/usr/bin/ruby
+# whichr gem
 # reveal executable name in path
+#
 if $0 == __FILE__
  # test run
  $: << '../lib'
@@ -8,19 +10,24 @@ end
 require 'sane'
 require 'whichr.rb'
 
-if ARGV[0].in? ['--help', '-h']
-  puts "syntax: executable_name or glob, ex: whichr or which* or whichr.bat
-    [-a] for all (include non executables)
+if ARGV[0].in?(['--help', '-h']) || (ARGV.length == 0)
+  puts "syntax: 
+whichr executable_name_or_glob [-a : all (include non executables) ]
     ex:
     $ whichr ls
-    $ whichr ls*
+    $ whichr ls\*
     $ whichr ls.exe
-    $ whichr ls -a"
+    $ whichr ls -a # print non executables, too"
   exit 0
 end
 
-if ARGV.include? '-a'
+
+if ARGV[-1] == '-a'
   RubyWhich.new.which(ARGV[0..-2], true, true)
 else
   RubyWhich.new.which(ARGV, false, true)
+end
+
+if File.exist? ARGV[0]
+  puts "warning: found parameter--you may need to escape your *'s in the command line, i.e. * becomes \\*"
 end
